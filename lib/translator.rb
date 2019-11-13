@@ -10,7 +10,7 @@ def load_library(file)
     
   }
   
-  file.collect{|key, value| result["get_meaning"][key]}
+  file.collect{|key, value| result[:"get_meaning"][key]}
   
   return result
   
