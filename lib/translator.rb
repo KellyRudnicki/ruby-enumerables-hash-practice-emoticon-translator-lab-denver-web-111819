@@ -6,7 +6,7 @@ def load_library(file_path)
   # code goes here
   emoticons = { "get_meaning" => {},"get_emoticon" => {}}
   
-  YAML.load_file(path).each do |meaning, language|
+  YAML.load_file(file_path).each do |meaning, language|
     eng,jp = language
     emoticons["get_meaning"][jp] = meaning
     emoticons["get_emoticon"][eng] =jp
