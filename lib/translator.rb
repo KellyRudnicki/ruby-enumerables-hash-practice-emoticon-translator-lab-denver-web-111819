@@ -2,20 +2,19 @@
 require 'yaml'
 
 def load_library(file_path)
-  # code goes here
-  emoticons = { "get_meaning" => {},"get_emoticon" => {}}
+  emoticon_dictionary = { "get_meaning" => {},"get_emoticon" => {}}
   
   YAML.load_file(file_path).each do |meaning, language|
     eng,jp = language
-    emoticons["get_meaning"][jp] = meaning
-    emoticons["get_emoticon"][eng] =jp
+    emoticon_dictionary["get_meaning"][jp] = meaning
+    emoticon_dictionary["get_emoticon"][eng] =jp
   end 
-  emoticons
+  emoticon_dictionary
 end
 
 def get_japanese_emoticon(file_path, emoticon)
-  emoticons = load_library(file_path)
-  result = emoticons["get_emoticon"][emoticon]
+  emoticon_dictionary = load_library(file_path)
+  result = emoticon_dictionary["get_emoticon"][emoticon]
   if result
     result
   else
@@ -24,12 +23,11 @@ def get_japanese_emoticon(file_path, emoticon)
 end
 
 def get_english_meaning(file_path, emoticon)
-  emoticons = load_library(file_path)
-  result = emoticons["get_meaning"][emoticon]
+  emoticon_dictionary = load_library(file_path)
+  result = emoticon_dictionary["get_meaning"][emoticon]
   if result
     result
   else
     "Sorry, that emoticon was not found"
   end
-  # code goes here, takes japanese emoticon and returns meaning in english, rely on load_library
 end
