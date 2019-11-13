@@ -5,7 +5,7 @@ file = YAML.load_file('./lib/emoticons.yml')
 def load_library(file)
   # code goes here
   result = {
-    "get_meaning" => {file.collect},
+    "get_meaning" => {file.collect {|key, value| }},
     "get_emoticon" => {}
     
   }
