@@ -9,7 +9,13 @@ def load_library(file)
     "get_emoticon" => {}
     
   }
-  
+  index = 0 
+  while index < file.length do 
+    
+    file.collect
+    index += 1 
+    
+  end 
   file.collect{|key, value| key => result["get_meaning"]}
   
   return result
