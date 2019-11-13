@@ -4,9 +4,14 @@ file = YAML.load_file( './lib/emoticons.yml' )
 
 def load_library(file_path)
   # code goes here
-  #result = { "get_meaning" => {},"get_emoticon" => {}}return result
-  file = File.read(file_path)
-  emoticons = YAML.load(file)
+  emoticons = { "get_meaning" => {},"get_emoticon" => {}}
+  
+  YAML.load_file(path).each |meaning, language|
+    eng,jp = language
+    emoticons["get_meaning"][jp] = meaning
+    emoticons["get_emoticon"][eng] =jp
+  end 
+  emoticons
 end
 
 def get_japanese_emoticon(file, emoticon)
