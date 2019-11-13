@@ -10,6 +10,8 @@ def load_library(file)
     
   }
   
+  file.collect{|key, value|
+  
   return result
   
 end
